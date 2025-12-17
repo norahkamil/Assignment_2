@@ -30,9 +30,12 @@ class Game:
         self.font = pygame.font.Font(None, 24)
 
         self.player = Player(self.maze)
-        
-        # TODO: Add the Ghosts here
+        # Draw a placeholder ghost at (13, 11)
+        ghost_surface = get_ghost_sprite((255, 0, 0))
+        ghost_pos = self.maze.grid_to_pixel((13, 11))
+        ghost_rect = ghost_surface.get_rect(center=ghost_pos)
 
+        self.screen.blit(ghost_surface, ghost_pos
         self.score = 0
         self.power_time_remaining = 0.0
         self.game_over = False
