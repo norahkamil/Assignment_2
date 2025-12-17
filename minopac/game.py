@@ -196,12 +196,11 @@ class Game:
         """
         self.maze.draw(self.screen)
         self.player.draw(self.screen)
-
-
-
-        #
-        # TODO: Draw the Ghosts here
-        #
+        # Draw a placeholder ghost at (13, 11)
+        ghost_surface = get_ghost_sprite((255, 0, 0))
+        ghost_pos = self.maze.grid_to_pixel((13, 11))
+        ghost_rect = ghost_surface.get_rect(center=ghost_pos)
+        self.screen.blit(ghost_surface, ghost_rect)
 
         info = f"Score: {self.score}   Lives: {self.player.lives}"
         if self.power_time_remaining > 0:
