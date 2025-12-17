@@ -29,9 +29,13 @@ class Game:
         self.clock = pygame.time.Clock()
         self.font = pygame.font.Font(None, 24)
 
-        self.player = Player(self.maze)
+        self.player = Player(self.maze)     
+        ghost_surface = get_ghost_sprite((255, 0, 0))
+        ghost_pos = self.maze.grid_to_pixel((13, 11))
+        ghost_rect = ghost_surface.get_rect(center=ghost_pos)
+        self.screen.blit(ghost_surface, ghost_pos)
         
-        # TODO: Add the Ghosts here
+
 
         self.score = 0
         self.power_time_remaining = 0.0
